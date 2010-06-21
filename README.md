@@ -45,9 +45,9 @@ If you get a dlopen error, you should install one of the forks:
     gem install ffi-ncurses-0.3.2.gem 
 
 NOTE: I've asked the maintainer of ffi-ncurses to pull in the fix, so this might not be necessary.
+NOTE: I suspect this might not work under windows ...
 
-
-The follows what is called the Visitor Pattern (http://en.wikipedia.org/wiki/Visitor_pattern).  
+The visualization follows what is known as the Visitor Pattern (http://en.wikipedia.org/wiki/Visitor_pattern).  
 You have one class, the visitor class, and another, a visitable class. When you initialize a visitor object, you give it as a parameter an object of the visitable class.  The visitor will call certain pre-defined methods (callback) on the visitable object.  In this case the visitor = the visualization, and the visitable = the game of life.  The callback is the 'evolve' method.  The output is displayed using curses.
 
 # Bonus points #
@@ -55,5 +55,5 @@ You have one class, the visitor class, and another, a visitable class. When you 
 * on elegant implementation
 pure ruby, no gems.
 
-# Out of context brownie points #
+# Out of contest brownie points #
 if you implement another visualization for the game.  The ncurses one is text-based, you could do one in ruby-processing, Shoes, or another toolset of your choice.  As long as it takes the game of life object as a parameter at initialize, and calls 'evolve' on it, you can make many different visualizations - that's one of the advantages of the visitor pattern.
