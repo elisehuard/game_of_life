@@ -47,6 +47,3 @@ class LifeNcurses
   end
 
 end
-
-require 'game_of_life'
-LifeNcurses.new(GameOfLife.new(20),20)
