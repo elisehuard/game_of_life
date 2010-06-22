@@ -47,6 +47,12 @@ If you get a dlopen error, you should install one of the forks:
 NOTE: I've asked the maintainer of ffi-ncurses to pull in the fix, so this might not be necessary.
 NOTE: I suspect this might not work under windows ...
 
+To run: (example script given life_ncurses_script)
+
+    LifeNcurses.new(GameOfLife.new)
+
+This will display the game of life in the terminal.
+
 The visualization follows what is known as the Visitor Pattern (http://en.wikipedia.org/wiki/Visitor_pattern).  
 You have one class, the visitor class, and another, a visitable class. When you initialize a visitor object, you give it as a parameter an object of the visitable class.  The visitor will call certain pre-defined methods (callback) on the visitable object.  In this case the visitor = the visualization, and the visitable = the game of life.  The callback is the 'evolve' method.  The output is displayed using curses.
 
