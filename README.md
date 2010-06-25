@@ -1,7 +1,7 @@
 ## Ruby Programming Challenge: Game of Life ##
 
 The idea is to implement the game of life in Ruby.
-The game of life is a simplified model of evolution and natural selection invented by a mathematician called James Conway. It is described here: http://en.wikipedia.org/wiki/Conway's_Game_of_Life
+The game of life is a simplified model of evolution and natural selection invented by a mathematician called James Conway. It is described [here](http://en.wikipedia.org/wiki/Conway's_Game_of_Life).
 
 # Rules #
 You have a grid of cells in 2 dimensions.  Each cell has 2 possible states, alive or dead.  Each cell has 8 neighbours: above, below, left, right, and the 4 diagonals.
@@ -17,7 +17,7 @@ edges of game: just pretend that the board is folded onto itself, and the edges 
 # Your job #
 The idea is that you implement a class that will have the following methods:
 
-* initialize (duh) which will randomly initialize the game of life matrix. You can give it parameters for the number of seeds as well as the size of the matrix, or others if you can think of any.
+* initialize (duh) which will randomly initialize the game of life matrix. I leave you to think of parameters to use: size, width, height, number of seeds to initialize ... ([for inspiration](http://people.bridgewater.edu/~rbowman/ISAW/Life.html)  )
 * evolve: this implements the evolution according to the game of life rules (see above).  Every time evolve is called, one step of the game of life is executed. 
 
 The evolve methods should return:
@@ -30,11 +30,13 @@ So:
     g.evolve
     => [[0, 1, 0, 0, 0], [1, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]] 
 
+* a state=(array) accessor to set the state from outside. This is for us to test if your evolve method obeys the rules (and can also be useful for your own tests).  Regardless of your internal state representation this method should take the same type of parameter as produced by evolve (an array of rows).
 
 # To test your implementation #
 Test-driven development is always a good idea.  I added a Test::Unit class as a simplified example, but really, try to do TDD (http://en.wikipedia.org/wiki/Test-driven_development).
 
 # To visualize your implementation #
+* life_ncurses *
 This requires the gem ffi-ncurses.
     gem install ffi ffi-ncurses
 
@@ -45,7 +47,6 @@ If you get a dlopen error, you should install one of the forks:
     gem install ffi-ncurses-0.3.2.gem 
 
 NOTE: I've asked the maintainer of ffi-ncurses to pull in the fix, so this might not be necessary.
-NOTE: I suspect this might not work under windows ...
 
 To run: (example script given life_ncurses_script)
 
@@ -56,6 +57,13 @@ This will display the game of life in the terminal.
 The visualization follows what is known as the Visitor Pattern (http://en.wikipedia.org/wiki/Visitor_pattern).  
 You have one class, the visitor class, and another, a visitable class. When you initialize a visitor object, you give it as a parameter an object of the visitable class.  The visitor will call certain pre-defined methods (callback) on the visitable object.  In this case the visitor = the visualization, and the visitable = the game of life.  The callback is the 'evolve' method.  The output is displayed using curses.
 
+NOTE: I have no computer under Windows, but I suspected it might not work, and Satoshi Asakawa tested it, and indeed it doesn't work, ffi_ncurses doesn't seem to play nice with the dll.
+
+* Shoes visualization *
+To solve the Windows issue, Satoshi Asakawa kindly provided a shoes visualization file.
+Install shoes from [here](http://shoes.heroku.com/downloads).
+To make the app run, you open it from shoes.
+
 # Bonus points #
 * on readable implementation
 * on elegant implementation
@@ -63,3 +71,5 @@ pure ruby, no gems.
 
 # Out of contest brownie points #
 if you implement another visualization for the game.  The ncurses one is text-based, you could do one in ruby-processing, Shoes, or another toolset of your choice.  As long as it takes the game of life object as a parameter at initialize, and calls 'evolve' on it, you can make many different visualizations - that's one of the advantages of the visitor pattern.
+
+Credits to the Baltimore Ruby User Group for giving me the idea at Bohconf.
