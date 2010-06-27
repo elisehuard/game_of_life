@@ -29,7 +29,7 @@ So:
     g.evolve
     => [[0, 1, 0, 0, 0], [1, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]] 
 
-* state=(array) accessor to set the state from outside. This allows us to test if your evolve method obeys the rules (and can also be useful for your own tests).  Regardless of your internal state representation this method should take the same type of parameter as produced by evolve (an array of rows).
+* state=(array) accessor to set the state from outside. This allows us to test whether your evolve method obeys the rules (can also be useful for your own tests).  Regardless of your internal state representation this method should take the same type of parameter as produced by evolve (an array of rows).
 
 # To test your implementation #
 Test-driven development is always a good idea.  I added a Test::Unit class as a *simplified* example, but really, try to do TDD (http://en.wikipedia.org/wiki/Test-driven_development).
@@ -56,12 +56,12 @@ This will display the game of life in the terminal.
 The visualization follows what is known as the Visitor Pattern (http://en.wikipedia.org/wiki/Visitor_pattern).  
 You have one class, the visitor class, and another, a visitable class. When you initialize a visitor object, you give it as a parameter an object of the visitable class.  The visitor will call certain pre-defined methods (callback) on the visitable object.  In this case the visitor = the visualization, and the visitable = the game of life.  The callback is the 'evolve' method.  The output is displayed using curses.
 
-NOTE: I have no computer under Windows, but I suspected it might not work, and Satoshi Asakawa tested it, and indeed it doesn't work, ffi_ncurses doesn't seem to play nice with the dll. Next paragraph takes care of that.
+NOTE: I have no computer under Windows, and Satoshi Asakawa confirmed that it doesn't work under Windows, ffi_ncurses doesn't seem to play nice with the dll. See next paragraph if you have a Windows computer.
 
 * Shoes visualization *
 To solve the Windows issue, Satoshi Asakawa kindly provided a shoes visualization file - see life_shoes.rb.
 Install shoes from [here](http://shoes.heroku.com/downloads).
-Yyou need to adapt life_shoes.rb in a couple of points (require your class, and call the initialization of your object in the Shoes.app).  To run, run Shoes, and open lifeshoes.rb from Shoes.
+You need to adapt life_shoes.rb in a couple of points (require your class, and call the initialization of your object in the Shoes.app).  To run, run Shoes, and open lifeshoes.rb from the Shoes application.
 
 # Bonus points #
 * on readable implementation
