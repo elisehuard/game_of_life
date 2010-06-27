@@ -35,7 +35,9 @@ So:
 Test-driven development is always a good idea.  I added a Test::Unit class as a *simplified* example, but really, try to do TDD (http://en.wikipedia.org/wiki/Test-driven_development).
 
 # To visualize your implementation #
-* life_ncurses *
+
+## life_ncurses
+
 This requires the gem ffi-ncurses.
     gem install ffi ffi-ncurses
 
@@ -58,7 +60,7 @@ You have one class, the visitor class, and another, a visitable class. When you 
 
 NOTE: I have no computer under Windows, and ashbb confirmed that it doesn't work under Windows, ffi_ncurses doesn't seem to play nice with the dll. See next paragraph if you have a Windows computer.
 
-* Shoes visualization *
+## Shoes visualization ##
 To solve the Windows issue, ashbb kindly provided a shoes visualization file - see life_shoes.rb.
 Install shoes from [here](http://shoes.heroku.com/downloads).
 You need to adapt life_shoes.rb in a couple of points (require your class, and call the initialization of your object in the Shoes.app).  To run, run Shoes, and open lifeshoes.rb from the Shoes application.
