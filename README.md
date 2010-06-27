@@ -45,7 +45,7 @@ If you get a dlopen error, you should install one of the forks:
     gem build ffi-ncurses.gemspec
     gem install ffi-ncurses-0.3.2.gem 
 
-NOTE: I've asked the maintainer of ffi-ncurses to pull in the fix, so this might not be necessary.
+NOTE: I've asked the maintainer of ffi-ncurses to pull in the fix, but no answer on this ...
 
 To run: (example script given life_ncurses_script)
 
@@ -56,10 +56,10 @@ This will display the game of life in the terminal.
 The visualization follows what is known as the Visitor Pattern (http://en.wikipedia.org/wiki/Visitor_pattern).  
 You have one class, the visitor class, and another, a visitable class. When you initialize a visitor object, you give it as a parameter an object of the visitable class.  The visitor will call certain pre-defined methods (callback) on the visitable object.  In this case the visitor = the visualization, and the visitable = the game of life.  The callback is the 'evolve' method.  The output is displayed using curses.
 
-NOTE: I have no computer under Windows, and Satoshi Asakawa confirmed that it doesn't work under Windows, ffi_ncurses doesn't seem to play nice with the dll. See next paragraph if you have a Windows computer.
+NOTE: I have no computer under Windows, and ashbb confirmed that it doesn't work under Windows, ffi_ncurses doesn't seem to play nice with the dll. See next paragraph if you have a Windows computer.
 
 * Shoes visualization *
-To solve the Windows issue, Satoshi Asakawa kindly provided a shoes visualization file - see life_shoes.rb.
+To solve the Windows issue, ashbb kindly provided a shoes visualization file - see life_shoes.rb.
 Install shoes from [here](http://shoes.heroku.com/downloads).
 You need to adapt life_shoes.rb in a couple of points (require your class, and call the initialization of your object in the Shoes.app).  To run, run Shoes, and open lifeshoes.rb from the Shoes application.
 
