@@ -63,7 +63,7 @@ NOTE: I have no computer under Windows, and ashbb confirmed that it doesn't work
 ## Shoes visualization ##
 To solve the Windows issue, ashbb kindly provided a shoes visualization file - see life_shoes.rb.
 Install shoes from [here](http://shoes.heroku.com/downloads).
-You need to adapt life_shoes.rb in a couple of points (require your class, and call the initialization of your object in the Shoes.app).  To run, run Shoes, and open lifeshoes.rb from the Shoes application.
+You need to adapt life_shoes.rb in a couple of points (require your class, and call the initialization of your object in the Shoes.app).  To run, run Shoes, and open life_shoes.rb from the Shoes application.
 
 # Bonus points #
 * on readable implementation
